@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: telegram-bot
+    env: python
+    plan: free
+    region: oregon
+    runtime: python-3.11.9
+    preDeployCommand: pip cache purge
+    buildCommand: pip install --no-cache-dir -r requirements.txt
+    startCommand: python ${ENTRYPOINT:-main.py}
